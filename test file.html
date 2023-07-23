@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gadget Galaxy - Cart</title>
+    <style>
+        /* Your CSS styles here */
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-right: 10px;
+        }
+
+        .cart-item .item-details {
+            flex-grow: 1;
+        }
+
+        .cart-item h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .cart-item p {
+            margin: 5px 0;
+            color: #777;
+        }
+
+        .cart-item .item-price {
+            font-weight: bold;
+        }
+
+        .total-price {
+            text-align: right;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Gadget Galaxy - Cart</h1>
+    </header>
+
+    <main>
+        <div id="cart-items">
+            <!-- Cart items will be dynamically generated here -->
+        </div>
+
+        <div class="total-price">
+            Total: <span id="total-price">$0.00</span>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2023 Gadget Galaxy. All rights reserved.
+    </footer>
+
+    <script>
+        // JavaScript code to retrieve cart items and display them dynamically
+        function getCartItems() {
+            // Replace this function with your actual code to retrieve cart items from storage or API
+
+            // Example array of product objects
+            return [
+                {
+                    id: 1,
+                    name: "Product 1",
+                    description: "Description of Product 1",
+                    price: 50.00,
+                    quantity: 2,
+                    image: "product1.jpg"
+                },
+                {
+                    id: 2,
+                    name: "Product 2",
+                    description: "Description of Product 2",
+                    price: 35.00,
+                    quantity: 1,
+                    image: "product2.jpg"
+                }
+            ];
+        }
+
+        // Retrieve cart items
+        var cartItems = getCartItems();
+
+        // Generate cart item HTML for each product
+        var cartItemsHTML = '';
+        var totalPrice = 0;
+
+        cartItems.forEach(function(item) {
+            var itemTotalPrice = item.price * item.quantity;
+            totalPrice += itemTotalPrice;
+
+            cartItemsHTML += `
+                <div class="cart-item">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="item-details">
+                        <h3>${item.name}</h
